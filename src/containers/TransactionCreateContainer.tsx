@@ -22,14 +22,14 @@ const TransactionCreateContainer: React.FC<Props> = ({ authService, snackbarServ
   const [, sendSnackbar] = useService(snackbarService);
 
   const [createTransactionState, sendCreateTransaction, createTransactionService] = useMachine(
-    createTransactionMachine
+    createTransactionMachine, { devTools: true }
   );
 
   // Expose createTransactionService on window for Cypress
   // @ts-ignore
   window.createTransactionService = createTransactionService;
 
-  const [usersState, sendUsers] = useMachine(usersMachine);
+  const [usersState, sendUsers] = useMachine(usersMachine, { devTools: true });
 
   useEffect(() => {
     sendUsers({ type: "FETCH" });

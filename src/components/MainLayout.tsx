@@ -51,7 +51,7 @@ interface Props {
 const MainLayout: React.FC<Props> = ({ children, notificationsService, authService }) => {
   const classes = useStyles();
   const theme = useTheme();
-  const [drawerState, sendDrawer] = useMachine(drawerMachine);
+  const [drawerState, sendDrawer] = useMachine(drawerMachine, { devTools: true });
 
   const aboveSmallBreakpoint = useMediaQuery(theme.breakpoints.up("sm"));
   const xsBreakpoint = useMediaQuery(theme.breakpoints.only("xs"));

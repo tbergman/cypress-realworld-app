@@ -18,7 +18,7 @@ interface Params {
 const TransactionDetailsContainer: React.FC<Props> = ({ authService }) => {
   const { transactionId }: Params = useParams();
   const [authState] = useService(authService);
-  const [transactionDetailState, sendTransactionDetail] = useMachine(transactionDetailMachine);
+  const [transactionDetailState, sendTransactionDetail] = useMachine(transactionDetailMachine, { devTools: true });
   useEffect(() => {
     sendTransactionDetail("FETCH", { transactionId });
   }, [sendTransactionDetail, transactionId]);

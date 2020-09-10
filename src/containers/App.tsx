@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
 const App: React.FC = () => {
   const classes = useStyles();
   const [authState] = useService(authService);
-  const [, , notificationsService] = useMachine(notificationsMachine);
+  const [, , notificationsService] = useMachine(notificationsMachine, { devTools: true });
 
-  const [, , snackbarService] = useMachine(snackbarMachine);
+  const [, , snackbarService] = useMachine(snackbarMachine, { devTools: true });
 
-  const [, , bankAccountsService] = useMachine(bankAccountsMachine);
+  const [, , bankAccountsService] = useMachine(bankAccountsMachine, { devTools: true });
 
   const isLoggedIn =
     authState.matches("authorized") ||

@@ -20,7 +20,7 @@ const TransactionPersonalList: React.FC<TransactionPersonalListProps> = ({
   dateRangeFilters,
   amountRangeFilters,
 }) => {
-  const [current, send, personalTransactionService] = useMachine(personalTransactionsMachine);
+  const [current, send, personalTransactionService] = useMachine(personalTransactionsMachine, { devTools: true });
   const { pageData, results } = current.context;
 
   // @ts-ignore

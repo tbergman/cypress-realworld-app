@@ -10,7 +10,7 @@ import TransactionPersonalList from "../components/TransactionPersonalList";
 import TransactionPublicList from "../components/TransactionPublicList";
 
 const TransactionsContainer: React.FC = () => {
-  const [currentFilters, sendFilterEvent] = useMachine(transactionFiltersMachine);
+  const [currentFilters, sendFilterEvent] = useMachine(transactionFiltersMachine, { devTools: true });
 
   const hasDateRangeFilter = currentFilters.matches({ dateRange: "filter" });
   const hasAmountRangeFilter = currentFilters.matches({
